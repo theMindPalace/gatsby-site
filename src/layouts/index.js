@@ -17,7 +17,7 @@ const navbarStyle = {
     marginRight:'2em'
   }
 }
-const Header = () => (
+const Header = ({ title }) => (
   <div
     style={{
       background: '#f56',
@@ -39,7 +39,7 @@ const Header = () => (
             textDecoration: 'none',
           }}
         >
-          Gatsby
+          {title}
         </Link>
       </h1>
       <ul className="main-nav" style={navbarStyle.ul}>
@@ -53,16 +53,16 @@ const Header = () => (
 
 
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children , data }) => (
   <div>
     <Helmet
-      title="Gatsby site"
+      title={ data.site.siteMetadata.headerTitle }
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header />
+    <Header title={ data.site.siteMetadata.title } />
     <div
       style={{
         margin: '0 auto',
@@ -81,3 +81,13 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
+
+export const query = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
