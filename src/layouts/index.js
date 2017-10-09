@@ -5,6 +5,18 @@ import Helmet from 'react-helmet'
 
 import './index.css'
 
+
+const navbarStyle = {
+  ul:{
+    listStyle:'none',
+    padding:'0',
+    margin:'0'
+  },
+  li:{
+    display:'inline-block',
+    marginRight:'2em'
+  }
+}
 const Header = () => (
   <div
     style={{
@@ -30,9 +42,16 @@ const Header = () => (
           Gatsby
         </Link>
       </h1>
+      <ul className="main-nav" style={navbarStyle.ul}>
+        <li style={navbarStyle.li}><Link to="/">Home</Link></li>
+        <li style={navbarStyle.li}><Link to="/page-2">Page 2</Link></li>
+        <li style={navbarStyle.li}><Link to="/page-3">Page 3</Link></li>
+      </ul>
     </div>
   </div>
 )
+
+
 
 const TemplateWrapper = ({ children }) => (
   <div>
