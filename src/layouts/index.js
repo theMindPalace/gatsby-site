@@ -46,6 +46,7 @@ const Header = ({ title }) => (
         <li style={navbarStyle.li}><Link to="/">Home</Link></li>
         <li style={navbarStyle.li}><Link to="/page-2">Page 2</Link></li>
         <li style={navbarStyle.li}><Link to="/page-3">Page 3</Link></li>
+        <li style={navbarStyle.li}><Link to="/my-files">My Files</Link></li>
       </ul>
     </div>
   </div>
