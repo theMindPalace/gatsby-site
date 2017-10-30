@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Post from '../components/post'
 
 const IndexPage = ({ data }) => {
   console.log(data)
@@ -12,13 +13,7 @@ const IndexPage = ({ data }) => {
       allMarkdownRemark.edges.map(({node},i) => {
 
         return (
-          <div key={i}>
-              <h1>{node.frontmatter.title}{" "}</h1>
-              <p>{node.frontmatter.date}</p>
-              <div>
-                {node.excerpt}
-              </div>
-          </div>
+          <Post key={i} post={node} />
         )
       })
     }
